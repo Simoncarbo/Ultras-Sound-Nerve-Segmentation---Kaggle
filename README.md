@@ -13,13 +13,7 @@ You will also need at least 6GB of RAM since we are working with high resolution
 ##Key ideas
 ###Architecture
 The solution uses a deep convolutional network, that has been adapted for segmentation such that image-level features 
-can be learned for the classification of each pixel. The architecture is mostly inspired by the Hypercolumns model described 
-in https://arxiv.org/abs/1411.5752. Since the images had more or less constant spatial structure, locally connected layers 
-were used in parallel to convolutional ones from the 10x14 resolution. I also used SemiShared layers, a novel layer that 
-shares filter weights only in blocks (with specified size) of the image. In a certain way, it provides a compromise between
-convolutional and locally connected layers. To help the coding, SemiShared layer only works for 1x1 filters.
-Finally, the model also emits a unique scalar value, that is multiplied with the final mask inside the network.
-This was done to help the network managing labelling errors: very similar images where sometimes labelled with and without nerve.
+can be learned for the classification of each pixel. While most of the participants used the U-net, my architecture is mostly inspired by the Hypercolumns model described in https://arxiv.org/abs/1411.5752. Since the images had more or less constant spatial structure, locally connected layers were used in parallel to convolutional ones from the 10x14 resolution. I also used SemiShared layers, a novel layer that shares filter weights only in blocks (with specified size) of the image. In a certain way, it provides a compromise betweenconvolutional and locally connected layers. To help the coding, SemiShared layer only works for 1x1 filters. Finally, the model also emits a unique scalar value, that is multiplied with the final mask inside the network. This was done to help the network managing labelling errors: very similar images where sometimes labelled with and without nerve.
 
 ###Cost function
 For learning, the dice coefficient was used with two slight modifications:
@@ -52,5 +46,4 @@ After months of reading, this is my first deeplearning project. Deeplearning is 
 but I tried to focus on the thinking part. While it couldn't bring me to the top submissions, I learned a lot and tried out some original ideas.
 Of course, all this wouldn't have been possible without all the work that has been put in Keras and Theano. I'll never
 thank the contributors enough. I also want to thank Marko Jocic for his starter code for the competition.
-I potentially will publish some of the ideas from this project in a scientific paper. 
-If you have any questions or want to do some collaboration, don't hesitate to send me a message.
+I did not evaluate the gain from the presented ideas, but will potentially publish some of them in a scientific paper. If you have any questions or want to do some collaboration, don't hesitate to send me a message.
