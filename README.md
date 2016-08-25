@@ -14,7 +14,7 @@ You will also need at least 6GB of RAM since we are working with high resolution
 ###Architecture
 The solution uses a deep convolutional network, that has been adapted for segmentation such that image-level features 
 can be learned for the classification of each pixel. The architecture is mostly inspired by the Hypercolumns model described 
-in https://arxiv.org/abs/1411.5752. Since the images had more ore less constant spatial structure, locally connected layers 
+in https://arxiv.org/abs/1411.5752. Since the images had more or less constant spatial structure, locally connected layers 
 were used in parallel to convolutional ones from the 10x14 resolution. I also used SemiShared layers, a novel layer that 
 shares filter weights only in blocks (with specified size) of the image. In a certain way, it provides a compromise between
 convolutional and locally connected layers. To help the coding, SemiShared layer only works for 1x1 filters.
