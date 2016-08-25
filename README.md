@@ -3,7 +3,7 @@
 This project was built for the Kaggle Ultrasound Nerve Segmentation competition. 
 Basic information about data and context can be found on their website: https://www.kaggle.com/c/ultrasound-nerve-segmentation.
 The solution presented here ranked 57th with a score of 0.691 (first place got 0.732). 
-Some original ideas have been coded during the project, and I would be glad if it helped anyone.
+Some original ideas have been coded during the project, and I would be glad if it helps anyone.
 
 ##Config
 The code runs on Python 3.4 and uses the Keras library with Theano (0.9.0) backend. Since I slightly changed Keras code 
