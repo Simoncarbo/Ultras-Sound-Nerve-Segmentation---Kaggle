@@ -5,11 +5,6 @@ Basic information about data and context can be found on their website: https://
 The solution presented here ranked 57th with a score of 0.691 (first place got 0.732). 
 Some original ideas have been coded during the project, and I would be glad if it helps anyone.
 
-##Config
-The code runs on Python 3.4 and uses the Keras library with Theano (0.9.0) backend. Since I slightly changed Keras code 
-for new type of layers, the code only runs with my Keras fork. You can download it on my github account.
-You will also need at least 6GB of RAM since we are working with high resolution images (I was using 12GB).
-
 ##Key ideas
 ###Architecture
 The solution uses a deep convolutional network, that has been adapted for segmentation such that image-level features 
@@ -36,10 +31,15 @@ A small post-processing is performed on the results. Basicly smoothing and delet
 private test sets. Other participants seem to have post-processing methods resulting in ~0.02 gain based on the same ideas but 
 with optimized parameters. I don't know if such results could be transposed to this model.
 
-##Improvement:
+##Possible improvement:
 - Explore more network architectures
 - Data augmentation (horizontal flip was helpful apparently, elastic deformation wasn't)
 - Optimized post-processing
+
+##Config
+The code runs on Python 3.4 and uses the Keras library with Theano (0.9.0) backend. Since I slightly changed Keras code 
+for new type of layers, the code only runs with my Keras fork. You can download it on my github account.
+You will also need at least 6GB of RAM since we are working with high resolution images (I was using 12GB).
 
 ##Conclusion and acknowledgements
 After months of reading, this is my first deeplearning project. Deeplearning is supposedly a lot of trial and error, 
