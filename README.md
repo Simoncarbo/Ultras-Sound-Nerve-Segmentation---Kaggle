@@ -2,18 +2,19 @@
 
 This project was built for the Kaggle Ultrasound Nerve Segmentation competition. 
 Basic information about data and context can be found on their website: https://www.kaggle.com/c/ultrasound-nerve-segmentation.
-The solution presented here ranked 57th with a score of 0.691 (first place got 0.732). 
+The solution presented here ranked 57th on 923 with a dice score of 0.691 (first place got 0.732). 
 Some original ideas have been coded during the project, and I would be glad if it helps anyone.
 
 ##Key ideas
 ###Architecture
 The solution uses a deep convolutional network, that has been adapted for segmentation such that image-level features 
-can be learned for the classification of each pixel. While most of the participants used the U-net, my architecture is mostly inspired by the Hypercolumns model described in https://arxiv.org/abs/1411.5752. Since the images had more or less constant spatial structure (nerves mostly at same location), locally connected layers were used in parallel to convolutional ones from the 10x14 resolution. I also used SemiShared layers, a novel layer that shares filter weights only in blocks (with specified size) of the image. In a certain way, it provides a compromise betweenconvolutional and locally connected layers. To help the coding, SemiShared layer only works for 1x1 filters. Finally, the model also emits a unique scalar value, that is multiplied with the final mask inside the network. This was done to help the network managing labelling errors: very similar images where sometimes labelled with and without nerve.
+can be learned for the classification of each pixel. While most of the participants used the U-net, my architecture is mostly inspired by the Hypercolumns model described in https://arxiv.org/abs/1411.5752. Since the images had more or less constant spatial structure (nerves mostly at same location), locally connected layers were used in parallel to convolutional ones from the 10x14 resolution. I also used SemiShared layers, a novel layer that shares filter weights only in blocks (with specified size) of the image. In a certain way, it provides a compromise between convolutional and locally connected layers. To help the coding, SemiShared layer only works for 1x1 filters. Finally, the model also emits a unique scalar value, that is multiplied with the final mask inside the network. This was done to help the network managing labelling errors: very similar images where sometimes labelled with and without nerve.
 
 ###Cost function
 For learning, the dice coefficient was used with two slight modifications:
 - a smoothing factor in the denominator
 - a factor that multiplies training examples with nerve, since nerve presence ratio varied a lot in train/validation/test sets
+
 The second modification could increase validation score from 0.7 to 0.72 even for a factor close to one (1.085).
 
 ###Subject information
