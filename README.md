@@ -38,8 +38,7 @@ with optimized parameters. I don't know if such results could be transposed to t
 - Optimized post-processing
 
 ##Config
-The code runs on Python 3.4 and uses the Keras library with Theano (0.9.0) backend. Since I slightly changed Keras code 
-for new type of layers, the code only runs with my Keras fork. You can download it on my github account.
+The code runs on Python 3.4 and the Keras (1.0.5) library with Theano (0.9.0) backend.
 You will also need at least 6GB of RAM since we are working with high resolution images (I was using 12GB).
 
 ##Conclusion and acknowledgements
