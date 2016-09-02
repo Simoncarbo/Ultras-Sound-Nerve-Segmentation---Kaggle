@@ -39,7 +39,7 @@ def local(nbfilters,fsize1,fsize2,inp,pad = True,subsample = (1,1), batchnorm =T
     if not fast:
         lconv = layers.LocallyConnected2D(nbfilters,fsize1,fsize2,border_mode = 'valid',subsample=subsample)
     else:
-        lconv = layers.LocallyConnected2D_fast(nbfilters,fsize1,fsize2,border_mode = 'valid',subsample=subsample)
+        lconv = layers_perso.LocallyConnected2D_fast(nbfilters,fsize1,fsize2,border_mode = 'valid',subsample=subsample)
     conv = lconv((inp))
     if batchnorm:
         conv = layers_perso.BatchNormalization_local(lconv,conv)
@@ -125,7 +125,7 @@ def segment(nb_rows = 160,nb_cols = 224):
     
     # merge all and add layer for segmentation output
     f1 = merge(up,mode='concat', concat_axis=1)
-    f2 = layers.SemiShared(1,(8,8))(f1)
+    f2 = layers_perso.SemiShared(1,(8,8))(f1)
     f2 = layers_perso.BatchNormalization_local(f2._keras_history[0],f2)
     output = activation('sigmoid')(f2)
     

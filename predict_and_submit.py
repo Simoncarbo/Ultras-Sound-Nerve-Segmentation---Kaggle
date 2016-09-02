@@ -14,6 +14,7 @@ from keras.models import model_from_json
 
 import Utils.processing as proc
 from Utils.import_data import load_test_data
+from Utils.layers import SemiShared, LocallyConnected2D_fast
 np.random.seed(172)
 
 model_name = 'Saved/model'
@@ -37,7 +38,7 @@ def predict_and_save():
     
     # preprocessing
     imgs = proc.preprocessing_test(imgs, m,st,(nb_rows_small, nb_cols_small))
-    model = model_from_json(open(model_name+'.json').read())
+    model = model_from_json(open(model_name+'.json').read(),{'SemiShared':SemiShared,'local_fast':LocallyConnected2D_fast})
     
     for epoch in epochs:
         weights_name = model_name+'_weights_epoch_'+str(epoch)+'.hdf5'
