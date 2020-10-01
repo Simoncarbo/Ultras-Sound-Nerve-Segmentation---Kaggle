@@ -1,4 +1,4 @@
-# My first deeplearning project
+# My first deep learning project
 
 This project was built for the Kaggle Ultrasound Nerve Segmentation competition. 
 Basic information about data and context can be found on their website: https://www.kaggle.com/c/ultrasound-nerve-segmentation.
@@ -24,11 +24,11 @@ batches that are representative of the complete training set. This results in mo
 and should improve batch normalization as well. Finally, the validation split was made subject-wise for better performance evaluation.
 
 ### Ensembling on epochs
-During training, while training loss was increasing, validation score varied a lot (0.69-0.72) without noticably decreasing.
+During training, while training loss was increasing, validation score varied a lot (0.69-0.72) without noticeably decreasing.
 I couldn't figure out why and finally, ensembling over the best epochs gave the best results.
 
 ### Post-processing
-A small post-processing is performed on the results. Basicly smoothing and deleting small masks. The gain was ~0.004 in public and
+A small post-processing is performed on the results. Basically smoothing and deleting small masks. The gain was ~0.004 in public and
 private test sets. Other participants seem to have post-processing methods resulting in ~0.02 gain based on the same ideas but 
 with optimized parameters. I don't know if such results could be transposed to this model.
 
@@ -42,7 +42,7 @@ The code runs on Python 3.4 and the Keras (1.0.5) library with Theano (0.9.0) ba
 You will also need at least 6GB of RAM since we are working with high resolution images (I was using 12GB).
 
 ## Conclusion and acknowledgements
-After months of reading, this is my first deeplearning project. Deeplearning is supposedly a lot of trial and error, 
+After months of reading, this is my first deep learning project. Deep learning is supposedly a lot of trial and error, 
 but I tried to focus on the thinking part. While it couldn't bring me to the top submissions, I learned a lot and tried out some original ideas.
 Of course, all this wouldn't have been possible without all the work that has been put in Keras and Theano. I'll never
 thank the contributors enough. I also want to thank Marko Jocic for his starter code for the competition.
